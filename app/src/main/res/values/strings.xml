@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CoronaSports</string>
+    <string name="register_infected_people">Register infected people</string>
+    <string name="country">Country</string>
+    <string name="team">team</string>
+    <string name="statistic">Statistic</string>
+    <string name="players_and_managers">players and managers</string>
 </resources>
