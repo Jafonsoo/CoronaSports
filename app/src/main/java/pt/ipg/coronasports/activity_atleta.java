@@ -9,12 +9,12 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class activity_equipa extends AppCompatActivity {
+public class activity_atleta extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_equipa);
+        setContentView(R.layout.activity_atletas);
 
 
     }
@@ -31,7 +31,7 @@ public class activity_equipa extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.binserir:
-                Intent intent = new Intent(this, activity_add_equipa.class);
+                Intent intent = new Intent(this, activity_add_atleta.class);
                 startActivity(intent);
                 return true;
             default:

@@ -15,7 +15,10 @@
             android:name=".activity_pais"
             android:label="Países"
             android:parentActivityName=".MainActivity" />
-
+        <activity
+            android:name=".activity_atleta"
+            android:label="Atletas e Treinadores"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".activity_equipa"
             android:label="Equipa"
@@ -25,6 +28,15 @@
             android:name=".activity_add_pais"
             android:label="Criar País"
             android:parentActivityName=".activity_pais" />
+
+        <activity
+            android:name=".activity_add_atleta"
+            android:label="Criar Atleta ou Treinador"
+            android:parentActivityName=".activity_atleta" />
+        <activity
+            android:name=".activity_add_equipa"
+            android:label="Criar Equipa"
+            android:parentActivityName=".activity_equipa" />
 
         <activity android:name=".MainActivity">
             <intent-filter>

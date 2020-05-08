@@ -18,46 +18,46 @@
             android:background="@color/blue">
 
             <ImageView
-                android:id="@+id/img_pais"
+                android:id="@+id/img_equipa"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
-                android:src="@drawable/mundo_icon"
-                android:contentDescription="@string/img_pais" />
+                android:src="@drawable/pequipa"
+                android:contentDescription="TODO" />
 
             <TextView
-                android:id="@+id/t_pais"
+                android:id="@+id/t_equipa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:layout_toEndOf="@+id/img_pais"
-                android:layout_toRightOf="@+id/img_pais"
+                android:layout_toRightOf="@+id/img_equipa"
                 android:fontFamily="sans-serif-medium"
                 android:includeFontPadding="false"
-                android:text="@string/pa_s_com_covid_19"
+                android:text="Equipa"
                 android:textColor="@color/darkblue"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_toEndOf="@+id/img_equipa"
+                android:layout_marginStart="10dp" />
 
             <TextView
                 android:id="@+id/username_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/t_pais"
-                android:layout_marginTop="5dp"
+                android:layout_below="@id/t_equipa"
                 android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/img_pais"
+                android:layout_toRightOf="@+id/img_equipa"
                 android:includeFontPadding="false"
                 android:textColor="@color/darkblue"
-                android:text="@string/preencha_o_seguinte_formul_rio"
+                android:text="Preencha o seguinte formulário"
                 android:textSize="13sp"
-                android:layout_toEndOf="@+id/img_pais"
+                android:layout_toEndOf="@+id/img_equipa"
                 android:layout_marginStart="10dp" />
         </RelativeLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,16 +68,16 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nome_do_pa_s">
+                android:hint="Nome da Equipa">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/nome_pais"
+                    android:id="@+id/nome_equipa"
                     android:textColor="@color/darkblue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textAutoComplete"
-                    android:drawableStart="@drawable/ic_add_location_black_24dp"
-                    android:drawableLeft="@drawable/ic_add_location_black_24dp"
+                    android:drawableStart="@drawable/ic_pais"
+                    android:drawableLeft="@drawable/ic_pais"
                     android:drawablePadding="15dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -85,88 +85,77 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/casos_suspeitos">
+                android:hint="Modalidade">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/casos_suspeitos"
+                    android:id="@+id/modalidade"
                     android:textColor="@color/darkblue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:drawableStart="@drawable/ic_warning_black_24dp"
-                    android:drawableLeft="@drawable/ic_warning_black_24dp"
+                    android:inputType="textAutoComplete"
+                    android:drawableStart="@drawable/ic_treinador"
+                    android:drawableLeft="@drawable/ic_pais"
                     android:drawablePadding="15dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/pessoas_infetadas">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/pessoas_infetadas"
-                    android:textColor="@color/darkblue"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:drawableStart="@drawable/ic_cough"
-                    android:drawableLeft="@drawable/ic_cough"
-                    android:drawablePadding="15dp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/numero_de_mortes">
+                android:hint="Data de fundação"
+                android:layout_marginBottom="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/num_obitos"
-                    android:textCursorDrawable="@null"
+                    android:id="@+id/data_fundacao"
                     android:textColor="@color/darkblue"
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:drawableStart="@drawable/ic_close_black_24dp"
-                    android:drawableLeft="@drawable/ic_close_black_24dp"
+                    android:inputType="date"
+                    android:drawableStart="@drawable/ic_date_range_black_24dp"
+                    android:drawableLeft="@drawable/ic_date_range_black_24dp"
                     android:drawablePadding="15dp"
                     android:textColorLink="#23283a" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/numero_de_recuperados"
-                android:layout_marginBottom="15dp">
+                android:layout_marginBottom="10dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/num_recuperados"
-                    android:textColor="@color/darkblue"
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:drawableStart="@drawable/ic_assignment_turned_in_black_24dp"
-                    android:drawableLeft="@drawable/ic_assignment_turned_in_black_24dp"
-                    android:drawablePadding="15dp"
+                    android:src="@drawable/ic_public_black_24dp" />
+
+                <Spinner
+                    android:id="@+id/spinner_pais"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:textColorLink="#23283a" />
 
 
-            </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/binserir"
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="@color/blue"
+                android:layout_width="match_parent"
+                android:textColor="@color/darkblue"
                 android:text="@string/inserir_pa_s"
-                android:textColor="@color/darkblue" />
+                android:background="@color/blue"/>
 
 
         </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>

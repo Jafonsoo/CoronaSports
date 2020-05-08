@@ -20,9 +20,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void bequipas(View view) {
+        Intent intent = new Intent(this, activity_equipa.class);
+        startActivity(intent);
     }
 
     public void bjogador(View view) {
+        Intent intent = new Intent(this, activity_atleta.class);
+        startActivity(intent);
     }
 
     public void bestatistica(View view) {
