@@ -1,8 +1,19 @@
 <resources>
-    <string name="app_name">CoronaSports</string>
+    <string name="app_name">Corona Sports</string>
     <string name="register_infected_people">Register infected people</string>
     <string name="country">Country</string>
     <string name="team">team</string>
     <string name="statistic">Statistic</string>
     <string name="players_and_managers">players and managers</string>
+    <string name="pa_s_com_covid_19">Registe o país com Covid-19</string>
+    <string name="preencha_o_seguinte_formul_rio">Preencha o seguinte formulário</string>
+    <string name="nome_do_pa_s">Nome do país</string>
+    <string name="casos_suspeitos">Casos Suspeitos</string>
+    <string name="pessoas_infetadas">Pessoas Infetadas</string>
+    <string name="numero_de_mortes">Numero de Mortes</string>
+    <string name="numero_de_recuperados">Numero de Recuperados</string>
+    <string name="inserir_pa_s">Guardar</string>
+    <string name="img_pais">img_pais</string>
+    <string name="inserir">inserir</string>
+    <string name="voltar">voltar</string>
 </resources>

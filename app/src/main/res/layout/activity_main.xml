@@ -13,44 +13,43 @@
         android:layout_height="wrap_content">
 
 
+        <TextView
+            android:id="@+id/textViewmain"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/baloo"
+            android:text="@string/app_name"
+            android:textColor="@color/darkblue"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView45"
+        android:id="@+id/textViewsubmain"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="68dp"
-        android:fontFamily="@font/averia_gruesa_libre"
-        android:text="@string/app_name"
-        android:textColor="@color/darkblue"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView46"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:fontFamily="@font/averia_gruesa_libre"
+        android:fontFamily="@font/baloo"
         android:textColor="@color/darkblue"
         android:text="@string/register_infected_people"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView45" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewmain" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="180dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView45"
+        app:layout_constraintStart_toEndOf="@+id/textViewmain"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/coronavirus" />
 
@@ -81,9 +80,18 @@
                 android:id="@+id/bpaises"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:background="@drawable/mundo_icon"
                 android:layout_centerInParent="true"
-                android:onClick="bpaises"
-                android:text="@string/country"/>
+                android:onClick="bpaises"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bpaises"
+                android:text="@string/country"
+                android:textColor="@color/darkblue"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/aclonica"
+                />
 
         </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -103,8 +111,16 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerInParent="true"
-                android:onClick="bequipas"
-                android:text="@string/team" />
+                android:background="@drawable/pequipa"
+                android:onClick="bequipas" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bequipas"
+                android:text="@string/team"
+                android:textColor="@color/darkblue"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/aclonica" />
 
 
         </RelativeLayout>
@@ -116,7 +132,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -139,7 +154,17 @@
             android:layout_height="100dp"
             android:layout_centerInParent="true"
             android:onClick="bjogador"
-            android:text="@string/players_and_managers"/>
+            android:background="@drawable/pjogadores"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bjogador"
+            android:text="@string/players_and_managers"
+            android:textSize="13sp"
+            android:textColor="@color/darkblue"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/aclonica" />
+
 
             </RelativeLayout>
 
