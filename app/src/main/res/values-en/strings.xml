@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Corona Sports</string>
+    <string name="register_infected_people">Register infected people</string>
+    <string name="country">Country</string>
+    <string name="team">Team</string>
+    <string name="statistic">Statistic</string>
+    <string name="players_and_managers">Player and Manager</string>
+    <string name="pa_s_com_covid_19">Sign the country with Covid-19</string>
+    <string name="preencha_o_seguinte_formul_rio">Fill out the following form</string>
+    <string name="nome_do_pa_s">Name of the country</string>
+    <string name="casos_suspeitos">Suspected cases</string>
+    <string name="pessoas_infetadas">Infected People</string>
+    <string name="numero_de_mortes">Number of deaths</string>
+    <string name="numero_de_recuperados">Number of Recovered</string>
+    <string name="inserir_pa_s">Save</string>
+    <string name="inserir">insert</string>
+    <string name="voltar">back</string>
+    <string name="idade">Age</string>
+    <string name="fun_o_na_equipa">Team Role</string>
+    <string name="data_de_confirma_o_do_virus">Virus Confirmation Date</string>
+    <string name="dados_clinicos">Clinical Data</string>
+    <string name="registe_a_equipa_que_tem_elementos_com_covid_19">Register the team that has elements with covid-19</string>
+    <string name="registe_o_atleta_ou_treinador_infetado">Register the infected athlete or coach</string>
+    <string name="nome_da_equipa">Team Name</string>
+    <string name="modalidade">Modality</string>
+    <string name="data_de_funda_o">Foundation date</string>
+    <string name="nome_completo">Full name</string>
+</resources>

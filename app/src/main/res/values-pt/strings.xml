@@ -1,22 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Corona Sports</string>
-    <string name="register_infected_people">Register infected people</string>
-    <string name="country">Country</string>
-    <string name="team">Team</string>
-    <string name="statistic">Statistic</string>
-    <string name="players_and_managers">Player and Manager</string>
+    <string name="app_name">Corona Sports</string>
+    <string name="register_infected_people">Registrar pessoas infectadas</string>
+    <string name="country">País</string>
+    <string name="team">Equipa</string>
+    <string name="statistic">Estatística</string>
+    <string name="players_and_managers">Atleta e Treinador</string>
     <string name="pa_s_com_covid_19">Registe o país onde exite Covid-19</string>
     <string name="preencha_o_seguinte_formul_rio">Preencha o seguinte formulário</string>
     <string name="nome_do_pa_s">Nome do país</string>
     <string name="casos_suspeitos">Casos Suspeitos</string>
     <string name="pessoas_infetadas">Pessoas Infetadas</string>
     <string name="numero_de_mortes">Numero de Mortes</string>
-    <string name="numero_de_recuperados">Numero de Recuperados</string>
+    <string name="numero_de_recuperados">Número de Recuperados</string>
     <string name="inserir_pa_s">Guardar</string>
-    <string name="img_pais" translatable="false">img_pais</string>
     <string name="inserir">inserir</string>
     <string name="voltar">voltar</string>
-    <string name="nome_completo">Nome Completo</string>
     <string name="idade">Idade</string>
     <string name="fun_o_na_equipa">Função na Equipa</string>
     <string name="data_de_confirma_o_do_virus">Data de Confirmação do virus</string>

@@ -32,12 +32,12 @@
                 android:id="@+id/t_equipa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/img_equipa"
                 android:fontFamily="sans-serif-medium"
                 android:includeFontPadding="false"
-                android:text="Equipa"
+                android:text="@string/registe_a_equipa_que_tem_elementos_com_covid_19"
                 android:textColor="@color/darkblue"
                 android:textSize="18sp"
                 android:layout_toEndOf="@+id/img_equipa"
@@ -48,11 +48,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/t_equipa"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/img_equipa"
                 android:includeFontPadding="false"
                 android:textColor="@color/darkblue"
-                android:text="Preencha o seguinte formulário"
+                android:text="@string/preencha_o_seguinte_formul_rio"
                 android:textSize="13sp"
                 android:layout_toEndOf="@+id/img_equipa"
                 android:layout_marginStart="10dp" />
@@ -68,7 +69,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nome da Equipa">
+                android:hint="@string/nome_da_equipa">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/nome_equipa"
@@ -85,7 +86,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Modalidade">
+                android:hint="@string/modalidade">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/modalidade"
@@ -104,7 +105,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Data de fundação"
+                android:hint="@string/data_de_funda_o"
                 android:layout_marginBottom="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText

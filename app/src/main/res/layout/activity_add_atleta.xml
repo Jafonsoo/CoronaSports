@@ -31,12 +31,12 @@
                 android:id="@+id/t_equipa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/img_jogador"
                 android:fontFamily="sans-serif-medium"
                 android:includeFontPadding="false"
-                android:text="Atleta ou treinador Infetado"
+                android:text="@string/registe_o_atleta_ou_treinador_infetado"
                 android:textColor="@color/darkblue"
                 android:textSize="18sp"
                 android:layout_toEndOf="@+id/img_jogador"
@@ -48,10 +48,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/t_equipa"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_toRightOf="@+id/img_jogador"
                 android:includeFontPadding="false"
                 android:textColor="@color/darkblue"
-                android:text="Preencha o seguinte formulário"
+                android:text="@string/preencha_o_seguinte_formul_rio"
                 android:textSize="13sp"
                 android:layout_toEndOf="@+id/img_jogador"
                 android:layout_marginStart="10dp" />
@@ -68,29 +69,29 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nome Completo">
+                android:hint="@string/nome_completo">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/nome_jogador"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_pais"
-                    android:drawableLeft="@drawable/ic_pais"
+                    android:drawableStart="@drawable/ic_person_add_black_24dp"
+                    android:drawableLeft="@drawable/ic_person_add_black_24dp"
                     android:drawablePadding="15dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Idade">
+                android:hint="@string/idade">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/idade"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:drawableStart="@drawable/ic_pais"
-                    android:drawableLeft="@drawable/ic_pais"
+                    android:drawableStart="@drawable/ic_cake_black_24dp"
+                    android:drawableLeft="@drawable/ic_cake_black_24dp"
                     android:drawablePadding="15dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -99,7 +100,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Função na Equipa">
+                android:hint="@string/fun_o_na_equipa">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/funcao_jogador"
@@ -114,7 +115,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Data de Confirmação do virus">
+                android:hint="@string/data_de_confirma_o_do_virus">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/data_jogador"
@@ -131,7 +132,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Dados Clinicos"
+                android:hint="@string/dados_clinicos"
                 android:layout_marginBottom="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText
