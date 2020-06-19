@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Corona Sports</string>
-    <string name="register_infected_people">Registrar pessoas infectadas</string>
+    <string name="register_infected_people">Gestão da dimensão do virus no mundo do desporto</string>
     <string name="country">País</string>
     <string name="team">Equipa</string>
     <string name="statistic">Estatística</string>
@@ -25,4 +24,5 @@
     <string name="nome_da_equipa">Nome da Equipa</string>
     <string name="modalidade">Modalidade</string>
     <string name="data_de_funda_o">Data de fundação</string>
+    <string name="nome_completo">Nome Completo</string>
 </resources>

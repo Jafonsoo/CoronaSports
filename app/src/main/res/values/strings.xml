@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">Corona Sports</string>
-    <string name="register_infected_people">Register infected people</string>
+    <string name="register_infected_people">Managing the dimension of the virus in the world of sport</string>
     <string name="country">Country</string>
     <string name="team">Team</string>
     <string name="statistic">Statistic</string>
@@ -26,4 +26,23 @@
     <string name="nome_da_equipa">Nome da Equipa</string>
     <string name="modalidade">Modalidade</string>
     <string name="data_de_funda_o">Data de fundação</string>
+    <string name="open" />
+    <string name="close" />
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="guardar">guardar</string>
+    <string name="Addpais">Adicionar País</string>
+    <string name="addequipa">Adicionar Equipa</string>
+    <string name="addplayer">Adicionar Atleta ou Treinador</string>
 </resources>

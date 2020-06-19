@@ -1,44 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="pt.ipg.coronasports">
+    package="pt.ipg.coronasports" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:label=" "
+        android:label="Corona Sports"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity
-            android:name=".activity_pais"
-            android:label="Países"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".activity_atleta"
-            android:label="Atletas e Treinadores"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".activity_equipa"
-            android:label="Equipa"
-            android:parentActivityName=".MainActivity" />
+        android:theme="@style/AppTheme" >
 
-        <activity
-            android:name=".activity_add_pais"
-            android:label="Criar País"
-            android:parentActivityName=".activity_pais" />
-
-        <activity
-            android:name=".activity_add_atleta"
-            android:label="Criar Atleta ou Treinador"
-            android:parentActivityName=".activity_atleta" />
-        <activity
-            android:name=".activity_add_equipa"
-            android:label="Criar Equipa"
-            android:parentActivityName=".activity_equipa" />
-
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
