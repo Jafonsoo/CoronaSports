@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_atleta"
+        android:name="pt.ipg.coronasports.Atleta.AtletaFragment"
+        android:label="@string/players_and_managers"
+        tools:layout="@layout/fragmento_atletas" >
+        <action
+            android:id="@+id/action_adicionaAtleta"
+            app:destination="@id/action_adicionaAtleta" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_equipas"
+        android:name="pt.ipg.coronasports.Equipa.EquipaFragment"
+        android:label="@string/team"
+        tools:layout="@layout/fragmento_equipa" >
+        <action
+            android:id="@+id/action_adicionaEquipa"
+            app:destination="@id/adicionaEquipa" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_pais"
+        android:name="pt.ipg.coronasports.Pais.PaisFragment"
+        android:label="@string/country"
+        tools:layout="@layout/fragmento_pais" >
+        <action
+            android:id="@+id/action_adicionaPais"
+            app:destination="@id/AdicionaPais" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_estatisticas"
+        android:name="pt.ipg.coronasports.Estatisticas.EstatisticasFragment"
+        android:label="@string/statistic"
+        tools:layout="@layout/fragmento_estatisticas">
+
+    </fragment>
+    <fragment
+        android:id="@+id/AdicionaPais"
+        android:name="pt.ipg.coronasports.Pais.AdicionaPaisFragment"
+        android:label="@string/Addpais"
+        tools:layout="@layout/fragment_add_pais">
+        <action
+            android:id="@+id/action_AdicionaPais_to_PaisFragment"
+            app:destination="@id/nav_pais" />
+    </fragment>
+    <fragment
+        android:id="@+id/adicionaEquipa"
+        tools:layout="@layout/fragment_add_equipa"
+        android:name="pt.ipg.coronasports.Equipa.AdicionaEquipaFragment"
+        android:label="@string/addequipa" >
+        <action
+            android:id="@+id/action_adicionaEquipaFragment_to_EquipasFragment"
+            app:destination="@id/nav_equipas" />
+    </fragment>
+    <fragment
+        android:id="@+id/action_adicionaAtleta"
+        tools:layout="@layout/fragment_add_atleta"
+        android:name="pt.ipg.coronasports.Atleta.AdicionaAtletaFragment"
+        android:label="@string/addplayer" >
+        <action
+            android:id="@+id/action_adicionaAtleta_to_AtletaFragment"
+            app:destination="@id/nav_atleta" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_home"
+        tools:layout="@layout/fragmento_home"
+        android:name="pt.ipg.coronasports.FragmentHome"
+        android:label="Home" />
+</navigation>

@@ -5,11 +5,10 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewAtleta"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="FRAGMENTO ATLETAS"
-        android:gravity="center"
-        android:textSize="30sp"/>
+        android:layout_margin="8dp" />
 
 </FrameLayout>

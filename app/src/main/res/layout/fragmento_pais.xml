@@ -4,10 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPais"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:text="FRAGMENTO PAIS" />
+        android:layout_margin="8dp" />
 </FrameLayout>
