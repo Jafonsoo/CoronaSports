@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_adicionaAtleta"
             app:destination="@id/action_adicionaAtleta" />
+        <action
+            android:id="@+id/action_editaAtletaFragment"
+            app:destination="@id/editaAtletaFragment" />
+        <action
+            android:id="@+id/action_eliminarAtletaFragment"
+            app:destination="@id/eliminarAtletaFragment" />
     </fragment>
 
     <fragment
@@ -23,6 +29,12 @@
         <action
             android:id="@+id/action_adicionaEquipa"
             app:destination="@id/adicionaEquipa" />
+        <action
+            android:id="@+id/action_editaEquipaFragment"
+            app:destination="@id/editaEquipaFragment" />
+        <action
+            android:id="@+id/action_eliminarEquipaFragment"
+            app:destination="@id/eliminarEquipaFragment" />
     </fragment>
 
     <fragment
@@ -33,6 +45,12 @@
         <action
             android:id="@+id/action_adicionaPais"
             app:destination="@id/AdicionaPais" />
+        <action
+            android:id="@+id/action_editaPaisFragment"
+            app:destination="@id/editaPaisFragment" />
+        <action
+            android:id="@+id/action_eliminarPaisFragment"
+            app:destination="@id/eliminarPaisFragment" />
     </fragment>
     <fragment
         android:id="@+id/nav_estatisticas"
@@ -73,4 +91,58 @@
         tools:layout="@layout/fragmento_home"
         android:name="pt.ipg.coronasports.FragmentHome"
         android:label="Home" />
+    <fragment
+        android:id="@+id/editaPaisFragment"
+        tools:layout="@layout/fragment_editar_pais"
+        android:name="pt.ipg.coronasports.Pais.EditaPaisFragment"
+        android:label="Editar Pais" >
+        <action
+            android:id="@+id/action_editaPaisFragment_to_PaisFragment"
+            app:destination="@id/nav_pais" />
+    </fragment>
+    <fragment
+        android:id="@+id/editaEquipaFragment"
+        tools:layout="@layout/fragment_editar_equipa"
+        android:name="pt.ipg.coronasports.Equipa.EditaEquipaFragment"
+        android:label="Editar Equipa" >
+        <action
+            android:id="@+id/action_editaEquipaFragment_to_EquipaFragment"
+            app:destination="@id/nav_equipas" />
+    </fragment>
+    <fragment
+        android:id="@+id/editaAtletaFragment"
+        tools:layout="@layout/fragment_editar_atleta"
+        android:name="pt.ipg.coronasports.Atleta.EditaAtletaFragment"
+        android:label="Editar Atleta" >
+        <action
+            android:id="@+id/action_editaAtletaFragment_to_AtletaFragment"
+            app:destination="@id/nav_atleta" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminarPaisFragment"
+        tools:layout="@layout/fragment_eliminar_pais"
+        android:name="pt.ipg.coronasports.Pais.EliminarPaisFragment"
+        android:label="Eliminar Pais" >
+        <action
+            android:id="@+id/action_eliminarPaisFragment_to_PaisFragment"
+            app:destination="@id/nav_pais" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminarEquipaFragment"
+        tools:layout="@layout/fragment_eliminar_equipa"
+        android:name="pt.ipg.coronasports.Equipa.EliminarEquipaFragment"
+        android:label="Eliminar Equipa" >
+        <action
+            android:id="@+id/action_eliminarEquipaFragment_to_EquipasFragment"
+            app:destination="@id/nav_equipas" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminarAtletaFragment"
+        tools:layout="@layout/fragment_eliminar_atleta"
+        android:name="pt.ipg.coronasports.Atleta.EliminarAtletaFragment"
+        android:label="Eliminar Atleta" >
+        <action
+            android:id="@+id/action_eliminarAtletaFragment_to_AtletaFragment"
+            app:destination="@id/nav_atleta" />
+    </fragment>
 </navigation>

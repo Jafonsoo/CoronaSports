@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_guardar"
+        android:id="@+id/action_guardar_atleta"
         android:title="@string/guardar"
         android:icon="@drawable/ic_save_black_24dp"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/action_sair"
+        android:id="@+id/action_sair_atleta"
         android:title="@string/close"
         android:icon="@drawable/ic_close_black_24dp"
         app:showAsAction="ifRoom"/>

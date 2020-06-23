@@ -1,4 +1,4 @@
-package pt.ipg.coronasports.BdCorona;
+package pt.ipg.coronasports.Bdcorona;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 
 public class ContentProviderCorona extends ContentProvider {
 
-    public static final String AUTHORITY = "pt.ipg.equipasfutebol.Bdcorona";
+    private static final String AUTHORITY = "pt.ipg.coronasports.Bdcorona";
     public static final String PAISES = "paises";
     public static final String EQUIPAS = "equipas";
     public static final String ATLETAS = "atletas";
@@ -31,8 +31,8 @@ public class ContentProviderCorona extends ContentProvider {
     public static final int URI_ATLETAS = 300;
     public static final int URI_ATLETAS_ESPECIFICA = 301;
 
-    public static final String UNICO_ITEM = "vnd.android.cursor.item/";
-    public static final String MULTIPLOS_ITEMS = "vnd.android.cursor.dir/";
+    public static final String CURSOR_ITEM = "vnd.android.cursor.item/";
+    public static final String CURSOR_DIR = "vnd.android.cursor.dir/";
 
     private BdCoronaOpenHelper bdCoronaOpenHelper;
 
@@ -91,19 +91,21 @@ public class ContentProviderCorona extends ContentProvider {
     @Nullable
     @Override
     public String getType(@NonNull Uri uri) {
-        switch (getUriMatcher().match(uri)) {
+        int codigoUri = getUriMatcher().match(uri);
+
+        switch (codigoUri) {
             case URI_PAIS:
-                return MULTIPLOS_ITEMS + PAISES;
+                return CURSOR_DIR + PAISES;
             case URI_PAIS_ESPECÍFICO:
-                return UNICO_ITEM + PAISES;
+                return CURSOR_ITEM + PAISES;
             case URI_EQUIPAS:
-                return MULTIPLOS_ITEMS + EQUIPAS;
+                return CURSOR_DIR + EQUIPAS;
             case URI_EQUIPAS_ESPECÍFICO:
-                return UNICO_ITEM + EQUIPAS;
+                return CURSOR_ITEM + EQUIPAS;
             case URI_ATLETAS:
-                return MULTIPLOS_ITEMS + ATLETAS;
+                return CURSOR_DIR + ATLETAS;
             case URI_ATLETAS_ESPECIFICA:
-                return UNICO_ITEM + ATLETAS;
+                return CURSOR_ITEM + ATLETAS;
             default:
                 return null;
         }
@@ -115,11 +117,11 @@ public class ContentProviderCorona extends ContentProvider {
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
         SQLiteDatabase bd = bdCoronaOpenHelper.getWritableDatabase();
 
-        long id = -1;
+        long id;
 
         switch (getUriMatcher().match(uri)) {
             case URI_PAIS:
-                id = new BdTablePaises(bd).insert(values);
+                id = (new BdTablePaises(bd).insert(values));
                 break;
             case URI_EQUIPAS:
                 id = new BdTableEquipa(bd).insert(values);
@@ -129,11 +131,11 @@ public class ContentProviderCorona extends ContentProvider {
                 break;
 
             default:
-                throw new UnsupportedOperationException("URI inválida (INSERT):" + uri.toString());
+                throw new UnsupportedOperationException("URI inválida (INSERT):" + uri.getPath());
         }
 
         if (id == -1) {
-            throw new SQLException("Não foi possível inserir o registo");
+            throw new SQLException("Não foi possível inserir o registo" + uri.getPath());
         }
 
         return Uri.withAppendedPath(uri, String.valueOf(id));

@@ -3,7 +3,7 @@ package pt.ipg.coronasports.Modelos;
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import pt.ipg.coronasports.BdCorona.BdTablePaises;
+import pt.ipg.coronasports.Bdcorona.BdTablePaises;
 
 public class Pais {
 
@@ -70,6 +70,7 @@ public class Pais {
         valores.put(BdTablePaises.CAMPO_NOME, nome_pais);
         valores.put(BdTablePaises.CAMPO_MORTOS, num_obitos);
         valores.put(BdTablePaises.CAMPO_INFETADOS, num_infetados);
+        valores.put(BdTablePaises.CAMPO_SUSPEITOS,num_suspeito);
         valores.put(BdTablePaises.CAMPO_RECUPERADOS,num_recuperados);
 
 

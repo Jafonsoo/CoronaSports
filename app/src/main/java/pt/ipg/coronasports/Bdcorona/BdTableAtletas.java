@@ -1,4 +1,4 @@
-package pt.ipg.coronasports.BdCorona;
+package pt.ipg.coronasports.Bdcorona;
 
 import android.content.ContentValues;
 import android.database.Cursor;

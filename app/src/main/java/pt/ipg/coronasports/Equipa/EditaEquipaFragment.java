@@ -1,21 +1,14 @@
 package pt.ipg.coronasports.Equipa;
 
-import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -24,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.loader.app.LoaderManager;
+import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -31,24 +25,27 @@ import pt.ipg.coronasports.Bdcorona.BdTablePaises;
 import pt.ipg.coronasports.Bdcorona.ContentProviderCorona;
 import pt.ipg.coronasports.MainActivity;
 import pt.ipg.coronasports.Modelos.Equipa;
-import pt.ipg.coronasports.Pais.AdicionaPaisFragment;
 import pt.ipg.coronasports.R;
 
-public class AdicionaEquipaFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
-    private static final int ID_CURSO_LOADER_PAISES = 0;
+public class EditaEquipaFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
+
+    private static final int ID_CURSO_LOADER_EQUIPA = 0;
 
     private EditText editTextDataFundacao;
     private EditText editTextNomeEquipa;
     private EditText editTextModalidades;
     private Spinner spinnerPais;
+    private Equipa equipa;
+
+    private boolean paisesCarregados = false;
+    private boolean paisAtualizado = false;
 
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-    ) {
+            Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_equipa, container, false);
+        return inflater.inflate(R.layout.fragment_editar_equipa, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -56,20 +53,27 @@ public class AdicionaEquipaFragment extends Fragment implements LoaderManager.Lo
 
         MainActivity activity = (MainActivity) getActivity();
         activity.setFragmentActual(this);
-        activity.setMenuActual(R.menu.menu_guardar_equipas);
+        activity.setMenuActual(R.menu.menu_editar_equipas);
 
         editTextDataFundacao = view.findViewById(R.id.data_fundacao);
         editTextNomeEquipa = view.findViewById(R.id.nome_equipa);
         editTextModalidades = view.findViewById(R.id.modalidade);
         spinnerPais = view.findViewById(R.id.spinner_pais);
 
-        LoaderManager.getInstance(this).initLoader(ID_CURSO_LOADER_PAISES, null, this);
+        equipa = activity.getEquipa();
+
+        editTextNomeEquipa.setText(equipa.getNome_equipa());
+        editTextModalidades.setText(equipa.getModalidade());
+        editTextDataFundacao.setText(equipa.getData_fundacao());
+
+        LoaderManager.getInstance(this).initLoader(ID_CURSO_LOADER_EQUIPA, null, this);
+
+        atualizaPaisSelecionado();
     }
 
-
     public void sair(){
-        NavController navController = NavHostFragment.findNavController(AdicionaEquipaFragment.this);
-        navController.navigate(R.id.action_adicionaEquipaFragment_to_EquipasFragment);
+        NavController navController = NavHostFragment.findNavController(EditaEquipaFragment.this);
+        navController.navigate(R.id.action_editaEquipaFragment_to_EquipaFragment);
     }
 
     public void guardar() {
@@ -97,19 +101,19 @@ public class AdicionaEquipaFragment extends Fragment implements LoaderManager.Lo
 
         long idPais = spinnerPais.getSelectedItemId();
 
-        Equipa equipa = new Equipa();
-
         equipa.setNome_equipa(nome);
         equipa.setData_fundacao(data);
         equipa.setModalidade(modalidades);
         equipa.setNome_pais(idPais);
 
         try {
-            getActivity().getContentResolver().insert(ContentProviderCorona.ENDERECO_EQUIPAS, equipa.getContentValues());
+            Uri enderecoEquipaEditar = Uri.withAppendedPath(ContentProviderCorona.ENDERECO_EQUIPAS, String.valueOf(equipa.getId()));
+
+            getActivity().getContentResolver().update(enderecoEquipaEditar, equipa.getContentValues(),null,null);
 
             Toast.makeText(getContext(), "Equipa guardada com sucesso", Toast.LENGTH_SHORT).show();
-            NavController navController = NavHostFragment.findNavController(AdicionaEquipaFragment.this);
-            navController.navigate(R.id.action_adicionaEquipaFragment_to_EquipasFragment);
+            NavController navController = NavHostFragment.findNavController(EditaEquipaFragment.this);
+            navController.navigate(R.id.action_editaEquipaFragment_to_EquipaFragment);
         } catch (Exception e) {
             Snackbar.make(
                     editTextNomeEquipa,
@@ -119,6 +123,22 @@ public class AdicionaEquipaFragment extends Fragment implements LoaderManager.Lo
             e.printStackTrace();
         }
 
+    }
+
+    private void atualizaPaisSelecionado() {
+        if(!paisesCarregados) return;
+        if(paisAtualizado) return;
+
+        long idPais = equipa.getNome_pais();
+
+        for(int i = 0; i < spinnerPais.getCount(); i++){
+            if(spinnerPais.getItemIdAtPosition(i) == idPais){
+                spinnerPais.setSelection(i);
+                break;
+            }
+        }
+
+        paisAtualizado = true;
     }
 
     private void mostraPaisesSpinner(Cursor cursorPaises) {
@@ -132,23 +152,23 @@ public class AdicionaEquipaFragment extends Fragment implements LoaderManager.Lo
         spinnerPais.setAdapter(adaptadorPais);
     }
 
-
     @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
-        androidx.loader.content.CursorLoader cursorLoader = new androidx.loader.content.CursorLoader(getContext(), ContentProviderCorona.ENDERECO_PAISES, BdTablePaises.TODAS_COLUNAS, null, null, BdTablePaises.CAMPO_NOME
-        );
-
-        return cursorLoader;
+        return new CursorLoader(getContext(), ContentProviderCorona.ENDERECO_PAISES, BdTablePaises.TODAS_COLUNAS, null, null, BdTablePaises.CAMPO_NOME);
     }
 
     @Override
     public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
         mostraPaisesSpinner(data);
+        paisesCarregados = true;
+        atualizaPaisSelecionado();
     }
 
     @Override
     public void onLoaderReset(@NonNull Loader<Cursor> loader) {
+        paisesCarregados = false;
+        paisAtualizado = false;
         mostraPaisesSpinner(null);
     }
 }

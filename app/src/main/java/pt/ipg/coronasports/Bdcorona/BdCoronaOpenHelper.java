@@ -1,4 +1,4 @@
-package pt.ipg.coronasports.BdCorona;
+package pt.ipg.coronasports.Bdcorona;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;

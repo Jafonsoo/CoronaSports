@@ -4,7 +4,7 @@ package pt.ipg.coronasports.Modelos;
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import pt.ipg.coronasports.BdCorona.BdTableAtletas;
+import pt.ipg.coronasports.Bdcorona.BdTableAtletas;
 
 public class Atleta {
 

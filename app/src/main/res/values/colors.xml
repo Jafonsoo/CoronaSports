@@ -5,4 +5,6 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="darkblue">#23283a</color>
     <color name="blue">#01A0E1</color>
+    <color name="pink">#fe104d</color>
+    <color name="transparent">#fafafa </color>
 </resources>

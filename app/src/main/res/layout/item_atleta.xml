@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/item_atleta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/darkblue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Joao Paulo" />
+
+    <TextView
+        android:id="@+id/textViewfuncao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/darkblue"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="@id/item_atleta"
+        app:layout_constraintTop_toBottomOf="@id/item_atleta"
+        tools:text="Atacante" />
+
+    <TextView
+        android:id="@+id/textViewequipa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:textColor="@color/darkblue"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toTopOf="@+id/textView17"
+        tools:text="Sporting" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:text="Pais"
+        android:textColor="@color/darkblue"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/textViewfuncao"
+        app:layout_constraintTop_toBottomOf="@id/textViewfuncao" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="25"
+        android:textColor="@color/darkblue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/item_atleta"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="anos"
+        android:textColor="@color/darkblue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textViewestado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estado Infetado"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/darkblue"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintStart_toStartOf="@id/textView13"
+        app:layout_constraintTop_toBottomOf="@id/textView13"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:text="no"
+        android:textColor="@color/darkblue"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/textViewfuncao"
+        app:layout_constraintTop_toTopOf="@+id/textViewfuncao"
+        tools:layout_editor_absoluteX="93dp" />
+
+    <TextView
+        android:id="@+id/textViewpais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="Portugal"
+        android:textColor="@color/darkblue"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Positivo em"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/textViewestado"
+        app:layout_constraintStart_toStartOf="@id/textViewestado"
+        app:layout_constraintTop_toBottomOf="@id/textViewestado"/>
+    <TextView
+        android:id="@+id/textViewdata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22/04/2020"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/textView19"
+        app:layout_constraintStart_toStartOf="@id/textView19"
+        app:layout_constraintTop_toBottomOf="@id/textView19"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

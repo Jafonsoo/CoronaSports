@@ -24,7 +24,6 @@
             android:icon="@drawable/ic_pneumonia"
             android:title="@string/statistic"/>
 
-
     </group>
 
 

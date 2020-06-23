@@ -3,7 +3,7 @@ package pt.ipg.coronasports.Modelos;
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import pt.ipg.coronasports.BdCorona.BdTableEquipa;
+import pt.ipg.coronasports.Bdcorona.BdTableEquipa;
 
 public class Equipa {
 
