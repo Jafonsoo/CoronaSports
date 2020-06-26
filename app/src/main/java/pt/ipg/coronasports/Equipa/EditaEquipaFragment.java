@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
@@ -36,6 +37,7 @@ public class EditaEquipaFragment extends Fragment implements LoaderManager.Loade
     private EditText editTextModalidades;
     private Spinner spinnerPais;
     private Equipa equipa;
+    private Button buttonEquipa;
 
     private boolean paisesCarregados = false;
     private boolean paisAtualizado = false;
@@ -66,6 +68,15 @@ public class EditaEquipaFragment extends Fragment implements LoaderManager.Loade
         editTextModalidades.setText(equipa.getModalidade());
         editTextDataFundacao.setText(equipa.getData_fundacao());
 
+        buttonEquipa = (Button) view.findViewById(R.id.button_inserir_equipa);
+
+        buttonEquipa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                guardar();
+            }
+        });
+
         LoaderManager.getInstance(this).initLoader(ID_CURSO_LOADER_EQUIPA, null, this);
 
         atualizaPaisSelecionado();
@@ -84,18 +95,18 @@ public class EditaEquipaFragment extends Fragment implements LoaderManager.Loade
             return;
         }
 
-
-        String data = editTextDataFundacao.getText().toString();
-
-        if(data.trim().isEmpty()){
-            editTextDataFundacao.setError("O campo não pode estar vazio");
-            return;
-        }
-
         String modalidades = editTextModalidades.getText().toString();
 
         if(modalidades.trim().isEmpty()){
             editTextModalidades.setError("O campo não pode estar vazio");
+            return;
+        }
+
+        String data = editTextDataFundacao.getText().toString();
+
+        if(data.trim().length() != 4){
+            editTextDataFundacao.setError("O campo não pode estar vazio");
+            editTextDataFundacao.requestFocus();
             return;
         }
 

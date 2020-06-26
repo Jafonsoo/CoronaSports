@@ -53,13 +53,6 @@
             app:destination="@id/eliminarPaisFragment" />
     </fragment>
     <fragment
-        android:id="@+id/nav_estatisticas"
-        android:name="pt.ipg.coronasports.Estatisticas.EstatisticasFragment"
-        android:label="@string/statistic"
-        tools:layout="@layout/fragmento_estatisticas">
-
-    </fragment>
-    <fragment
         android:id="@+id/AdicionaPais"
         android:name="pt.ipg.coronasports.Pais.AdicionaPaisFragment"
         android:label="@string/Addpais"
@@ -145,4 +138,23 @@
             android:id="@+id/action_eliminarAtletaFragment_to_AtletaFragment"
             app:destination="@id/nav_atleta" />
     </fragment>
+
+        <fragment
+            android:id="@+id/nav_estatisticas_pais"
+            android:name="pt.ipg.coronasports.Estatisticas.EstatisticasPaisFragment"
+            android:label="Estatisticas Países"
+            tools:layout="@layout/fragmento_estatisticas_pais">
+
+        </fragment>
+        <fragment
+            android:id="@+id/nav_estatisticas_equipa"
+            android:name="pt.ipg.coronasports.Estatisticas.EstatisticasEquipaFragment"
+            android:label="Estatisticas Equipas"
+            tools:layout="@layout/fragment_estatisticas_equipa" />
+        <fragment
+            android:id="@+id/nav_estatisticas_atleta"
+            android:name="pt.ipg.coronasports.Estatisticas.EstatisticasAtletaFragment"
+            android:label="Estatisticas Atletas e Treinadores"
+            tools:layout="@layout/fragment_estatisticas_atleta" />
+
 </navigation>

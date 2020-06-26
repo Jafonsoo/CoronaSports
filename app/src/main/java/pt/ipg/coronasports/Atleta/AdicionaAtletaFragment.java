@@ -1,9 +1,12 @@
 package pt.ipg.coronasports.Atleta;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
@@ -19,6 +24,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Calendar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -45,11 +52,14 @@ public class AdicionaAtletaFragment extends Fragment implements LoaderManager.Lo
     private EditText editTextFuncao;
     private EditText editTextIdade;
     private EditText editTextDados;
+    private Button buttonAtleta;
 
     private String[] stringEstado = new String[]{"Infetado", "Recuperado", "Falecido"};
     private Spinner spinnerEstado;
     private Spinner spinnerPaises;
     private Spinner spinnerEquipas;
+
+    private DatePickerDialog.OnDateSetListener mmdata;
 
     @Override
     public View onCreateView(
@@ -75,13 +85,21 @@ public class AdicionaAtletaFragment extends Fragment implements LoaderManager.Lo
         spinnerEquipas = view.findViewById(R.id.spinner_equipa);
         spinnerPaises = view.findViewById(R.id.spinner_pais);
 
+        AbrirData();
+
+        buttonAtleta = (Button) view.findViewById(R.id.button_inserir_atleta);
+
+        buttonAtleta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                guardar();
+            }
+        });
+
         setSpinnerEstado();
         getActivity().getSupportLoaderManager().restartLoader(ID_CURSO_LOADER_PAISES, null, this);
         getActivity().getSupportLoaderManager().restartLoader(ID_CURSO_LOADER_EQUIPAS, null, this);
     }
-
-
-
 
 
     public void sair(){
@@ -97,40 +115,40 @@ public class AdicionaAtletaFragment extends Fragment implements LoaderManager.Lo
             return;
         }
 
+        int idade;
 
-        String data = editTextDataJogador.getText().toString();
+        String strIdade = editTextIdade.getText().toString();
 
-        if (data.trim().isEmpty()) {
-            editTextDataJogador.setError("O campo não pode estar vazio");
+        if (strIdade.trim().length() > 2 ) {
+            editTextIdade.setError("Numero inválido");
+            editTextIdade.requestFocus();
+            return;
+        }
+        try {
+            idade = Integer.parseInt(strIdade);
+        } catch (NumberFormatException e) {
+            editTextIdade.setError("Este campo não pode estar vazio");
             return;
         }
 
         String funcao = editTextFuncao.getText().toString();
 
         if (funcao.trim().isEmpty()) {
-            editTextFuncao.setError("O campo não pode estar vazio");
+            editTextFuncao.setError("Este campo não pode estar vazio");
             return;
         }
 
-        int idade;
+        String data = editTextDataJogador.getText().toString();
 
-        String strIdade = editTextIdade.getText().toString();
-
-        if (strIdade.trim().isEmpty()) {
-            editTextIdade.setError("O campo não pode estar vazio!");
-            return;
-        }
-        try {
-            idade = Integer.parseInt(strIdade);
-        } catch (NumberFormatException e) {
-            editTextIdade.setError("Campo Inválido");
+        if (data.trim().isEmpty()) {
+            editTextDataJogador.setError("Este campo não pode estar vazio");
             return;
         }
 
         String dados = editTextDados.getText().toString();
 
         if (dados.trim().isEmpty()) {
-            editTextDados.setError("O campo não pode estar vazio");
+            editTextDados.setError("Este campo não pode estar vazio");
             return;
         }
 
@@ -170,6 +188,35 @@ public class AdicionaAtletaFragment extends Fragment implements LoaderManager.Lo
         }
 
     }
+
+    private void AbrirData(){
+        editTextDataJogador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar calendar = Calendar.getInstance();
+                int ano = calendar.get(Calendar.YEAR);
+                int mes = calendar.get(Calendar.MONTH);
+                int dia = calendar.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        getContext(),
+                        android.R.style.Theme_Holo_Light_DarkActionBar,
+                        mmdata,
+                        ano, mes, dia);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+        mmdata = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month = month + 1;
+                String date = dayOfMonth + "/" + month + "/" + year;
+                editTextDataJogador.setText(date);
+            }
+        };
+    }
+
 
     private void setSpinnerEstado() {
 

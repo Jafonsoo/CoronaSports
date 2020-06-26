@@ -62,6 +62,7 @@ public class Equipa {
         this.nomePais = nomePais;
     }
 
+
     public ContentValues getContentValues(){
         ContentValues valores = new ContentValues();
 

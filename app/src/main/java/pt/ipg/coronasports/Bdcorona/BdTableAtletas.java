@@ -41,10 +41,10 @@ public class BdTableAtletas implements BaseColumns {
                 "CREATE TABLE " + NOME_TABELA + "(" +
                         _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                         CAMPO_NOME + " TEXT NOT NULL," +
-                        CAMPO_IDADE + " INTEGER NOT NULL," +
+                        CAMPO_IDADE + " INT NOT NULL," +
                         CAMPO_DATA + " DATE NOT NULL," +
                         CAMPO_DADOS + " TEXT NOT NULL," +
-                        CAMPO_ESTADO + " TEXT," +
+                        CAMPO_ESTADO + " TEXT NOT NULL," +
                         CAMPO_EQUIPA + " TEXT NOT NULL," +
                         CAMPO_PAIS + " TEXT NOT NULL," +
                         CAMPO_FUNCAO + " TEXT NOT NULL," +
@@ -68,6 +68,10 @@ public class BdTableAtletas implements BaseColumns {
                 ;
                 if (selection != null) {
                     sql += " AND " + selection;
+                }
+
+                if (orderBy != null) {
+                    sql += " ORDER BY " + CAMPO_ESTADO;
                 }
                 Log.d("Tabela Equipas", "query: " + sql);
 

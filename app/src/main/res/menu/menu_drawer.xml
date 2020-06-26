@@ -5,7 +5,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_pneumonia"
+            android:icon="@drawable/ic_home_black_24dp"
             android:title="Home"/>
         <item
             android:id="@+id/nav_pais"
@@ -20,7 +20,7 @@
             android:icon="@drawable/ic_jogador"
             android:title="@string/players_and_managers"/>
         <item
-            android:id="@+id/nav_estatisticas"
+            android:id="@+id/nav_estatisticas_pais"
             android:icon="@drawable/ic_pneumonia"
             android:title="@string/statistic"/>
 

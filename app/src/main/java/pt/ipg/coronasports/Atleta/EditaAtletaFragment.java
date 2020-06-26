@@ -1,18 +1,25 @@
 package pt.ipg.coronasports.Atleta;
 
+import android.app.DatePickerDialog;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Calendar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,6 +46,7 @@ public class EditaAtletaFragment extends Fragment implements LoaderManager.Loade
     private EditText editTextIdade;
     private EditText editTextDados;
     private Atleta atleta;
+    private Button buttonAtleta;
 
     private String[] stringEstado = new String[]{"Infetado", "Recuperado", "Falecido"};
     private Spinner spinnerEstado;
@@ -50,6 +58,8 @@ public class EditaAtletaFragment extends Fragment implements LoaderManager.Loade
 
     private boolean equipasCarregados = false;
     private boolean equipasatualizado = false;
+
+    private DatePickerDialog.OnDateSetListener mmdata;
 
     @Override
     public View onCreateView(
@@ -75,6 +85,8 @@ public class EditaAtletaFragment extends Fragment implements LoaderManager.Loade
         spinnerEquipas = view.findViewById(R.id.spinner_equipa);
         spinnerPaises = view.findViewById(R.id.spinner_pais);
 
+        AbrirData();
+
         atleta = activity.getAtleta();
 
         editTextNomeJogador.setText(atleta.getNome_atleta());
@@ -82,6 +94,15 @@ public class EditaAtletaFragment extends Fragment implements LoaderManager.Loade
         editTextFuncao.setText(atleta.getFuncao());
         editTextDados.setText(atleta.getDados_atleta());
         editTextDataJogador.setText(atleta.getData_corona());
+
+        buttonAtleta = (Button) view.findViewById(R.id.button_inserir_atleta);
+
+        buttonAtleta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                guardar();
+            }
+        });
 
         LoaderManager.getInstance(this).initLoader(ID_CURSO_LOADER_PAISES, null, this);
         LoaderManager.getInstance(this).initLoader(ID_CURSO_LOADER_EQUIPAS, null, this);
@@ -106,11 +127,19 @@ public class EditaAtletaFragment extends Fragment implements LoaderManager.Loade
             return;
         }
 
+        int idade;
 
-        String data = editTextDataJogador.getText().toString();
+        String strIdade = editTextIdade.getText().toString();
 
-        if (data.trim().isEmpty()) {
-            editTextDataJogador.setError("O campo não pode estar vazio");
+        if (strIdade.trim().length() < 2 ) {
+            editTextIdade.setError("O campo não pode estar vazio!");
+            editTextIdade.requestFocus();
+            return;
+        }
+        try {
+            idade = Integer.parseInt(strIdade);
+        } catch (NumberFormatException e) {
+            editTextIdade.setError("Campo Inválido");
             return;
         }
 
@@ -121,20 +150,13 @@ public class EditaAtletaFragment extends Fragment implements LoaderManager.Loade
             return;
         }
 
-        int idade;
+        String data = editTextDataJogador.getText().toString();
 
-        String strIdade = editTextIdade.getText().toString();
-
-        if (strIdade.trim().isEmpty()) {
-            editTextIdade.setError("O campo não pode estar vazio!");
+        if (data.trim().isEmpty()) {
+            editTextDataJogador.setError("O campo não pode estar vazio");
             return;
         }
-        try {
-            idade = Integer.parseInt(strIdade);
-        } catch (NumberFormatException e) {
-            editTextIdade.setError("Campo Inválido");
-            return;
-        }
+
 
         String dados = editTextDados.getText().toString();
 
@@ -143,8 +165,6 @@ public class EditaAtletaFragment extends Fragment implements LoaderManager.Loade
             return;
         }
 
-
-
         long idEstado = spinnerEstado.getSelectedItemPosition();
 
         long idPais = spinnerPaises.getSelectedItemId();
@@ -152,11 +172,12 @@ public class EditaAtletaFragment extends Fragment implements LoaderManager.Loade
         long idEquipa = spinnerEquipas.getSelectedItemId();
 
         atleta.setNome_atleta(nome);
+        atleta.setIdade_atleta(idade);
+        atleta.setFuncao(funcao);
         atleta.setData_corona(data);
         atleta.setDados_atleta(dados);
-        atleta.setIdade_atleta(idade);
+
         atleta.setEstado_atleta(idEstado);
-        atleta.setFuncao(funcao);
         atleta.setPais_atleta(idPais);
         atleta.setEquipa_atleta(idEquipa);
 
@@ -166,7 +187,7 @@ public class EditaAtletaFragment extends Fragment implements LoaderManager.Loade
 
             getActivity().getContentResolver().update(enderecoEquipaEditar, atleta.getContentValues(),null,null);
 
-            Toast.makeText(getContext(), "Formulário guardado com sucesso", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Atleta guardado com sucesso", Toast.LENGTH_SHORT).show();
             NavController navController = NavHostFragment.findNavController(EditaAtletaFragment.this);
             navController.navigate(R.id.action_editaAtletaFragment_to_AtletaFragment);
         } catch (Exception e) {
@@ -178,6 +199,34 @@ public class EditaAtletaFragment extends Fragment implements LoaderManager.Loade
             e.printStackTrace();
         }
 
+    }
+
+    private void AbrirData(){
+        editTextDataJogador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar calendar = Calendar.getInstance();
+                int ano = calendar.get(Calendar.YEAR);
+                int mes = calendar.get(Calendar.MONTH);
+                int dia = calendar.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        getContext(),
+                        android.R.style.Theme_Holo_Light_DarkActionBar,
+                        mmdata,
+                        ano, mes, dia);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+        mmdata = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month = month + 1;
+                String date = dayOfMonth + "/" + month + "/" + year;
+                editTextDataJogador.setText(date);
+            }
+        };
     }
 
     private void setSpinnerEstado() {

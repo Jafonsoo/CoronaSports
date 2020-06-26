@@ -106,7 +106,7 @@ public class AdaptadorAtletas extends RecyclerView.Adapter<AdaptadorAtletas.View
                 textViewestado.setTextColor(Color.rgb(255,195,77));
             }else if (atleta.getEstado_atleta()==1){
                 textViewestado.setText("Recuperado");
-                textViewestado.setTextColor(Color.GREEN);
+                textViewestado.setTextColor(Color.rgb(0,128,0));
             }else {
                 textViewestado.setText("Falecido");
                 textViewestado.setTextColor(Color.rgb(178,0,32));

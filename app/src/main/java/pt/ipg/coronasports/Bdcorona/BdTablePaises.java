@@ -37,7 +37,7 @@ public class BdTablePaises implements BaseColumns {
     }
 
     public Cursor query(String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy) {
-        return db.query(NOME_TABELA, columns, selection, selectionArgs, groupBy, having, CAMPO_MORTOS + " DESC");
+        return db.query(NOME_TABELA, columns, selection, selectionArgs, groupBy, having, CAMPO_INFETADOS + " DESC");
     }
 
     public long insert(ContentValues values) {

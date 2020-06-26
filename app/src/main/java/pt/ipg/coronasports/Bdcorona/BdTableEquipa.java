@@ -59,6 +59,10 @@ public class BdTableEquipa implements BaseColumns {
             sql += " AND " + selection;
         }
 
+        if (orderBy != null) {
+            sql += " ORDER BY " + CAMPO_NOME;
+        }
+
         Log.d("Tabela Equipas", "query: " + sql);
 
         return db.rawQuery(sql, selectionArgs);

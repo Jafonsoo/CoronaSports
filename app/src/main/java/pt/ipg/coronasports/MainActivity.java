@@ -1,10 +1,13 @@
 package pt.ipg.coronasports;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -14,21 +17,23 @@ import pt.ipg.coronasports.Atleta.EditaAtletaFragment;
 import pt.ipg.coronasports.Equipa.AdicionaEquipaFragment;
 import pt.ipg.coronasports.Equipa.EditaEquipaFragment;
 import pt.ipg.coronasports.Equipa.EquipaFragment;
+import pt.ipg.coronasports.Estatisticas.EstatisticasAtletaFragment;
+import pt.ipg.coronasports.Estatisticas.EstatisticasEquipaFragment;
+import pt.ipg.coronasports.Estatisticas.EstatisticasPaisFragment;
 import pt.ipg.coronasports.Modelos.Atleta;
 import pt.ipg.coronasports.Modelos.Equipa;
 import pt.ipg.coronasports.Modelos.Pais;
 import pt.ipg.coronasports.Pais.AdicionaPaisFragment;
 import pt.ipg.coronasports.Pais.EditaPaisFragment;
-import pt.ipg.coronasports.Pais.EliminarPaisFragment;
 import pt.ipg.coronasports.Pais.PaisFragment;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.inputmethod.InputMethodManager;
+import android.view.View;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 import static pt.ipg.coronasports.R.id.nav_host_fragment;
@@ -43,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     //https://stackoverflow.com/questions/37526195/how-to-hide-navigation-drawer-item-while-the-respective-fragment-is-opened
     //https://stackoverflow.com/questions/4165414/how-to-hide-soft-keyboard-on-android-after-clicking-outside-edittext
 
+    //https://developer.android.com/guide/navigation/navigation-ui
+
     private AppBarConfiguration mAppBarConfiguration;
     private Pais pais = null;
     private Equipa equipa = null;
@@ -50,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment fragmentActual = null;
     private int menuActual = R.menu.menu_main;
     private Menu menu;
+
 
     public Pais getPais(){
         return pais;
@@ -74,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,17 +92,38 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         DrawerLayout mDrawerLayout = findViewById(R.id.drawermain);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        final NavigationView navigationView = findViewById(R.id.nav_view);
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_pais, R.id.nav_equipas, R.id.nav_atleta, R.id.nav_estatisticas, R.id.nav_home)
+                R.id.nav_pais, R.id.nav_equipas, R.id.nav_atleta, R.id.nav_estatisticas_pais, R.id.nav_home,
+                R.id.nav_estatisticas_pais, R.id.nav_estatisticas_equipa, R.id.nav_estatisticas_atleta)
                 .setDrawerLayout(mDrawerLayout)
                 .build();
         NavController navController = Navigation.findNavController(this, nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        final BottomNavigationView bottomNavigationView = findViewById(R.id.nav_viewBottom);
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
+
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
+                if(destination.getId() == R.id.nav_estatisticas_pais){
+                    bottomNavigationView.setVisibility(View.VISIBLE);
+                } else if (destination.getId() == R.id.nav_estatisticas_equipa){
+                    bottomNavigationView.setVisibility(View.VISIBLE);
+                    navigationView.getMenu().getItem(4).setChecked(true);
+                } else if (destination.getId() == R.id.nav_estatisticas_atleta){
+                    bottomNavigationView.setVisibility(View.VISIBLE);
+                    navigationView.getMenu().getItem(4).setChecked(true);
+                } else {
+                    bottomNavigationView.setVisibility(View.GONE);
+                }
+            }
+        });
 
 
     }
@@ -101,9 +131,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 
 
 
@@ -145,6 +177,12 @@ public class MainActivity extends AppCompatActivity {
             if (processaOpcoesMenuAlterarEquipa(id)) return true;
         } else if (menuActual == R.menu.menu_editar_atletas){
             if (processaOpcoesMenuAlterarAtleta(id)) return true;
+        } else if (menuActual == R.menu.menu_estat_pais){
+            if (processaOpcoesMenuDetalhesPais(id) ) return true;
+        } else if (menuActual == R.menu.menu_estat_equipa){
+            if(processaOpcoesMenuDetalhesEquipa(id)) return true;
+        } else if (menuActual == R.menu.menu_estat_atleta){
+            if(processaOpcoesMenuDetalhesAtleta(id)) return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -320,7 +358,38 @@ public class MainActivity extends AppCompatActivity {
         menu.findItem(R.id.action_settings).setVisible(false);
     }
 
+    private boolean processaOpcoesMenuDetalhesPais(int id) {
+        EstatisticasPaisFragment estatisticasPaisFragment = (EstatisticasPaisFragment) fragmentActual;
 
+        if (id == R.id.action_detalhes_pais) {
+            estatisticasPaisFragment.AbreDetalhesPais();
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean processaOpcoesMenuDetalhesEquipa(int id) {
+        EstatisticasEquipaFragment estatisticasEquipaFragment = (EstatisticasEquipaFragment) fragmentActual;
+
+        if (id == R.id.action_detalhes_equipa) {
+            estatisticasEquipaFragment.AbreDetalhesEquipa();
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean processaOpcoesMenuDetalhesAtleta(int id) {
+        EstatisticasAtletaFragment estatisticasAtletaFragment = (EstatisticasAtletaFragment) fragmentActual;
+
+        if (id == R.id.action_detalhes_atleta) {
+            estatisticasAtletaFragment.AbreDetalhesAtleta();
+            return true;
+        }
+
+        return false;
+    }
 
 
 }

@@ -10,8 +10,8 @@
         android:id="@+id/item_nome_atleta345"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -70,7 +70,7 @@
         android:textSize="14sp"
         android:text="450"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/pink"
+        android:textColor="@color/red"
         app:layout_constraintStart_toEndOf="@+id/textView46"
         app:layout_constraintTop_toTopOf="@+id/textView46" />
 

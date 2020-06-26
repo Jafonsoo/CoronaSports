@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_estatisticas_pais"
+            android:icon="@drawable/ic_public_black_24dp"
+            android:title="@string/country"/>
+        <item
+            android:id="@+id/nav_estatisticas_equipa"
+            android:icon="@drawable/ic_treinador"
+            android:title="@string/team"/>
+        <item
+            android:id="@+id/nav_estatisticas_atleta"
+            android:icon="@drawable/ic_jogador"
+            android:title="@string/players_and_managers"/>
+
+
+    </group>
+
+
+
+
+</menu>

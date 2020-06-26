@@ -120,6 +120,7 @@ public class Atleta {
         this.funcao = funcao;
     }
 
+
     public ContentValues getContentValues() {
         ContentValues valores = new ContentValues();
 

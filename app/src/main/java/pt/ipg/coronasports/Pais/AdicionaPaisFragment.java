@@ -51,7 +51,7 @@ public class AdicionaPaisFragment extends Fragment {
         editTextInfetados = (EditText) view.findViewById(R.id.pessoas_infetadas);
         editTextSuspeitos = (EditText) view.findViewById(R.id.casos_suspeitos);
         editTextRecuperados = (EditText) view.findViewById(R.id.num_recuperados);
-        button = (Button) view.findViewById(R.id.button_inserir);
+        button = (Button) view.findViewById(R.id.button_inserir_pais);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +143,8 @@ public class AdicionaPaisFragment extends Fragment {
             editTextRecuperados.setError("Recuperados Inválidos");
             return;
         }
+
+        Pais pais = new Pais();
 
         pais.setNome_pais(nome);
         pais.setNum_obitos(mortos);

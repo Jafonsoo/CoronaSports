@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -34,10 +35,13 @@ public class EditaPaisFragment extends Fragment implements LoaderManager.LoaderC
     private EditText editTextInfetados;
     private EditText editTextRecuperados;
     private Pais pais;
+    private Button buttonPais;
+
 
     public EditaPaisFragment(){
 
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,6 +74,15 @@ public class EditaPaisFragment extends Fragment implements LoaderManager.LoaderC
         editTextSuspeitos.setText(String.valueOf(pais.getNum_suspeito()));
         editTextInfetados.setText(String.valueOf(pais.getNum_infetados()));
         editTextRecuperados.setText(String.valueOf(pais.getNum_recuperados()));
+
+        buttonPais = (Button) view.findViewById(R.id.button_inserir_pais);
+
+        buttonPais.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                guardar();
+            }
+        });
 
         LoaderManager.getInstance(this).initLoader(ID_CURSOR_LOADER_Pais, null, this);
 

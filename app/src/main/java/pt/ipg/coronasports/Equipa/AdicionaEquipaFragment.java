@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
@@ -41,6 +42,7 @@ public class AdicionaEquipaFragment extends Fragment implements LoaderManager.Lo
     private EditText editTextNomeEquipa;
     private EditText editTextModalidades;
     private Spinner spinnerPais;
+    private Button buttonEquipa;
 
     @Override
     public View onCreateView(
@@ -63,6 +65,15 @@ public class AdicionaEquipaFragment extends Fragment implements LoaderManager.Lo
         editTextModalidades = view.findViewById(R.id.modalidade);
         spinnerPais = view.findViewById(R.id.spinner_pais);
 
+        buttonEquipa = (Button) view.findViewById(R.id.button_inserir_equipa);
+
+        buttonEquipa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                guardar();
+            }
+        });
+
         LoaderManager.getInstance(this).initLoader(ID_CURSO_LOADER_PAISES, null, this);
     }
 
@@ -80,18 +91,18 @@ public class AdicionaEquipaFragment extends Fragment implements LoaderManager.Lo
             return;
         }
 
-
-        String data = editTextDataFundacao.getText().toString();
-
-        if(data.trim().isEmpty()){
-            editTextDataFundacao.setError("O campo não pode estar vazio");
-            return;
-        }
-
         String modalidades = editTextModalidades.getText().toString();
 
         if(modalidades.trim().isEmpty()){
             editTextModalidades.setError("O campo não pode estar vazio");
+            return;
+        }
+
+        String data = editTextDataFundacao.getText().toString();
+
+        if(data.trim().length() != 4){
+            editTextDataFundacao.setError("Ano incorreto");
+            editTextDataFundacao.requestFocus();
             return;
         }
 

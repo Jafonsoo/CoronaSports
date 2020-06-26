@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 import pt.ipg.coronasports.MainActivity;
+import pt.ipg.coronasports.Modelos.Equipa;
 import pt.ipg.coronasports.Pais.PaisFragment;
 import pt.ipg.coronasports.R;
 import pt.ipg.coronasports.Modelos.Pais;
@@ -66,11 +67,6 @@ public class AdaptadorPaises extends RecyclerView.Adapter<AdaptadorPaises.ViewHo
 
     private static ViewHolderPaises viewHolderPaisesSelecionado = null;
 
-    public Pais getPaisSelecionado() {
-        if(viewHolderPaisesSelecionado == null) return null;
-
-        return viewHolderPaisesSelecionado.pais;
-    }
 
     public class ViewHolderPaises extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView textViewNome;
@@ -108,10 +104,10 @@ public class AdaptadorPaises extends RecyclerView.Adapter<AdaptadorPaises.ViewHo
                 textViewEstado.setTextColor(Color.GREEN);
             } else if(pais.getNum_infetados() >= 5000 && pais.getNum_infetados() < 10000){
                 textViewEstado.setText("Risco Moderado");
-                textViewEstado.setTextColor(Color.rgb(255,195,77));
+                textViewEstado.setTextColor(Color.rgb(252,212,19));
             }else if(pais.getNum_infetados()>=10000 && pais.getNum_infetados() < 30000){
                 textViewEstado.setText("Risco Elevado");
-                textViewEstado.setTextColor(Color.rgb(255,105,0));
+                textViewEstado.setTextColor(Color.rgb(255,171,36));
             }else{
                 textViewEstado.setText("Risco Extremo");
                 textViewEstado.setTextColor(Color.rgb(178,0,32));

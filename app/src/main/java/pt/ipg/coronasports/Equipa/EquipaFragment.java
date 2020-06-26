@@ -5,18 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
-import com.google.android.material.navigation.NavigationView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
@@ -29,7 +23,6 @@ import pt.ipg.coronasports.Adaptadores.AdaptadorEquipa;
 import pt.ipg.coronasports.Bdcorona.BdTableEquipa;
 import pt.ipg.coronasports.Bdcorona.ContentProviderCorona;
 import pt.ipg.coronasports.MainActivity;
-import pt.ipg.coronasports.Pais.PaisFragment;
 import pt.ipg.coronasports.R;
 
 public class EquipaFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
@@ -50,9 +43,7 @@ public class EquipaFragment extends Fragment implements LoaderManager.LoaderCall
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragmento_equipa, container, false);
-        setHasOptionsMenu(true);
-        return view;
+        return inflater.inflate(R.layout.fragmento_equipa, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
