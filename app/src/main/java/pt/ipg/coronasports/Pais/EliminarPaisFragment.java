@@ -83,17 +83,17 @@ public class EliminarPaisFragment extends Fragment {
     public void eliminar() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
-        builder.setTitle("Eliminar Pais");
-        builder.setMessage("Tem a certeza que pretende eliminar o pais '" + pais.getNome_pais() + "'");
+        builder.setTitle(R.string.elipais);
+        builder.setMessage(getString(R.string.apagarpais) + pais.getNome_pais() + "'");
         builder.setIcon(R.drawable.ic_baseline_delete_24);
-        builder.setPositiveButton("Sim, eliminar", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.simeliminar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 confirmaEliminar();
             }
         });
 
-        builder.setNegativeButton("Não, cancelar", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.naocancelar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // cancelar
@@ -115,13 +115,13 @@ public class EliminarPaisFragment extends Fragment {
             int apagados = getActivity().getContentResolver().delete(enderecoPais, null, null);
 
             if (apagados == 1) {
-                Toast.makeText(getContext(), "Pais eliminado com sucesso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.eliminadopais, Toast.LENGTH_SHORT).show();
                 NavController navController = NavHostFragment.findNavController(EliminarPaisFragment.this);
                 navController.navigate(R.id.action_eliminarPaisFragment_to_PaisFragment);
                 return;
             }
         } catch (Exception e) {
-            Snackbar.make(textViewNome, "Erro: Não foi possível eliminar o pais", Snackbar.LENGTH_INDEFINITE).show();
+            Snackbar.make(textViewNome, R.string.erooelimirpais, Snackbar.LENGTH_INDEFINITE).show();
             e.printStackTrace();
         }
 

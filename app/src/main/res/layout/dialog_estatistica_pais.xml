@@ -57,7 +57,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:includeFontPadding="false"
-                    android:text="Estatistica Geral Dos Países"
+                    android:text="@string/estatistica_geral_dos_pa_ses"
                     android:textSize="20sp" />
 
                 <TextView
@@ -66,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/textEstatisticas"
                     android:layout_marginTop="20dp"
-                    android:text="Paises Registados"
+                    android:text="@string/paises_registados"
                     android:textSize="15sp" />
 
                 <TextView
@@ -88,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/textTotalPaises"
                     android:layout_marginTop="10dp"
-                    android:text="Total de casos suspeitos"
+                    android:text="@string/total_de_casos_suspeitos"
                     android:textSize="15sp" />
 
                 <TextView
@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/textTotalSuspeitos"
                     android:layout_marginTop="10dp"
-                    android:text="Total de infetados"
+                    android:text="@string/total_de_infetados"
                     android:textSize="15sp" />
 
                 <TextView
@@ -132,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/textTotalInfetados"
                     android:layout_marginTop="10dp"
-                    android:text="Total de Obitos"
+                    android:text="@string/total_de_obitos"
                     android:textSize="15sp" />
 
                 <TextView
@@ -154,7 +154,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/textTotalObitos"
                     android:layout_marginTop="10dp"
-                    android:text="Total de Recuperados"
+                    android:text="@string/total_de_recuperados"
                     android:textSize="15sp" />
 
                 <TextView

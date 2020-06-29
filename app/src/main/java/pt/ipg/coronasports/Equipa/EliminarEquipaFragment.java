@@ -83,17 +83,17 @@ public class EliminarEquipaFragment extends Fragment {
     public void eliminar() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
-        builder.setTitle("Eliminar Equipa");
-        builder.setMessage("Tem a certeza que pretende eliminar a equipa '" + equipa.getNome_equipa() + "'");
+        builder.setTitle(R.string.eliminequipa);
+        builder.setMessage(getString(R.string.eliequipa) + equipa.getNome_equipa() + "'");
         builder.setIcon(R.drawable.ic_baseline_delete_24);
-        builder.setPositiveButton("Sim, eliminar", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.simeliminar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 confirmaEliminar();
             }
         });
 
-        builder.setNegativeButton("Não, cancelar", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.naocancelar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // cancelar
@@ -115,13 +115,13 @@ public class EliminarEquipaFragment extends Fragment {
             int apagados = getActivity().getContentResolver().delete(enderecoEquipa, null, null);
 
             if (apagados == 1) {
-                Toast.makeText(getContext(), "Equipa eliminada com sucesso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.eqeliminada, Toast.LENGTH_SHORT).show();
                 NavController navController = NavHostFragment.findNavController(EliminarEquipaFragment.this);
                 navController.navigate(R.id.action_eliminarEquipaFragment_to_EquipasFragment);
                 return;
             }
         } catch (Exception e) {
-            Snackbar.make(textViewNome, "Erro: Não foi possível eliminar a equipa", Snackbar.LENGTH_INDEFINITE).show();
+            Snackbar.make(textViewNome, R.string.impeliminar, Snackbar.LENGTH_INDEFINITE).show();
             e.printStackTrace();
         }
 

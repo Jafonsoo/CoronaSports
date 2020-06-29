@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@id/item_nome_atleta345"
         android:textColor="@color/darkblue"
         android:textSize="14sp"
-        android:text="Modalidade"/>
+        android:text="@string/modalidade"/>
 
 
     <TextView
@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
-        android:text="Ano Fundação"
+        android:text="@string/data_de_funda_o"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/darkblue"
         android:textSize="14sp"

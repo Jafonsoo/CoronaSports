@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/textEstatisticas"
                     android:layout_marginTop="20dp"
-                    android:text="Numero de atletas infetados" />
+                    android:text="@string/numero_de_atletas_infetados" />
 
                 <TextView
                     android:id="@+id/numtotalatletas"
@@ -69,7 +69,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:includeFontPadding="false"
-                    android:text="Estatistica Geral Dos Atletas"
+                    android:text="@string/estatistica_geral_dos_atletas"
                     android:textSize="20sp" />
 
 
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/textTotalAtletas"
                     android:layout_marginTop="15dp"
-                    android:text="Idade media dos atletas" />
+                    android:text="@string/idade_m_dia_dos_atletas" />
 
                 <TextView
                     android:id="@+id/textmaxatleta"
@@ -103,7 +103,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_toEndOf="@+id/lastequipa"
                     android:layout_toRightOf="@+id/lastequipa"
-                    android:text="Sem Dados" />
+                    android:text="@string/sem_dados" />
 
                 <TextView
                     android:id="@+id/lastequipa"
@@ -111,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/maxatleta"
                     android:layout_marginTop="15dp"
-                    android:text="Ultima equipa registada" />
+                    android:text="@string/ultimo_atleta_registado" />
 
                 <Button
                     android:id="@+id/buttonEstatAtleta"

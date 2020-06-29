@@ -69,17 +69,16 @@ public class AdaptadorEstatisticasAtletas extends RecyclerView.Adapter<Adaptador
                 dialog_paisAtleta.setText(atleta.getNomePaisAtleta());
 
                 if(atleta.getEstado_atleta()==0){
-                    dialog_estado.setText("Infetado");
+                    dialog_estado.setText(R.string.infetado);
                     dialog_estado.setTextColor(Color.rgb(255,195,77));
                 }else if (atleta.getEstado_atleta()==1){
-                    dialog_estado.setText("Recuperado");
+                    dialog_estado.setText(R.string.recuperado);
                     dialog_estado.setTextColor(Color.rgb(0,128,0));
                 }else {
-                    dialog_estado.setText("Falecido");
+                    dialog_estado.setText(R.string.falecido);
                     dialog_estado.setTextColor(Color.rgb(178,0,32));
                 }
 
-                Toast.makeText(context,"Visualizar " + atleta.getNome_atleta(),Toast.LENGTH_SHORT).show();
                 buttonDetalhesPais.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -128,11 +127,11 @@ public class AdaptadorEstatisticasAtletas extends RecyclerView.Adapter<Adaptador
 
 
             if(atleta.getEstado_atleta()==0){
-                textViewEstado.setText("Infetado");
+                textViewEstado.setText(R.string.infetado);;
             }else if (atleta.getEstado_atleta()==1){
-                textViewEstado.setText("Recuperado");
+                textViewEstado.setText(R.string.recuperado);
             }else {
-                textViewEstado.setText("Falecido");
+                textViewEstado.setText(R.string.falecido);
             }
 
         }

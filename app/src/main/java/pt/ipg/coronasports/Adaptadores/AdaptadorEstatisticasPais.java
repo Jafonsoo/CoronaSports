@@ -62,21 +62,20 @@ public class AdaptadorEstatisticasPais extends RecyclerView.Adapter<AdaptadorEst
                 dialog_suspeitos.setText(String.valueOf(pais.getNum_suspeito()));
                 dialog_recuperados.setText(String.valueOf(pais.getNum_recuperados()));
 
-                if(pais.getNum_infetados() >= 0 && pais.getNum_infetados() < 5000){
-                    dialog_estado.setText("Risco Baixo");
+                if(pais.getNum_infetados() >= 0 && pais.getNum_infetados() < 20000){
+                    dialog_estado.setText(R.string.baixo);
                     dialog_estado.setTextColor(Color.GREEN);
-                } else if(pais.getNum_infetados() >= 5000 && pais.getNum_infetados() < 10000){
-                    dialog_estado.setText("Risco Moderado");
+                } else if(pais.getNum_infetados() >= 20000 && pais.getNum_infetados() < 100000){
+                    dialog_estado.setText(R.string.moderado);
                     dialog_estado.setTextColor(Color.rgb(252,212,19));
-                }else if(pais.getNum_infetados()>=10000 && pais.getNum_infetados() < 30000){
-                    dialog_estado.setText("Risco Elevado");
+                }else if(pais.getNum_infetados()>=100000 && pais.getNum_infetados() < 500000){
+                    dialog_estado.setText(R.string.elevado);
                     dialog_estado.setTextColor(Color.rgb(255,171,36));
                 }else{
-                    dialog_estado.setText("Risco Extremo");
+                    dialog_estado.setText(R.string.extremo);
                     dialog_estado.setTextColor(Color.rgb(178,0,32));
                 }
 
-                Toast.makeText(context,"Visualizar " + pais.getNome_pais(),Toast.LENGTH_SHORT).show();
                 buttonDetalhesPais.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -123,14 +122,14 @@ public class AdaptadorEstatisticasPais extends RecyclerView.Adapter<AdaptadorEst
 
             textViewNome.setText(pais.getNome_pais());
 
-            if(pais.getNum_infetados() >= 0 && pais.getNum_infetados() < 5000){
-                textViewEstado.setText("Risco Baixo");
-            } else if(pais.getNum_infetados() >= 5000 && pais.getNum_infetados() < 10000){
-                textViewEstado.setText("Risco Moderado");
-            }else if(pais.getNum_infetados()>=10000 && pais.getNum_infetados() < 30000){
-                textViewEstado.setText("Risco Elevado");
+            if(pais.getNum_infetados() >= 0 && pais.getNum_infetados() < 20000){
+                textViewEstado.setText(R.string.baixo);
+            } else if(pais.getNum_infetados() >= 20000 && pais.getNum_infetados() < 100000){
+                textViewEstado.setText(R.string.moderado);
+            }else if(pais.getNum_infetados()>=100000 && pais.getNum_infetados() < 500000){
+                textViewEstado.setText(R.string.elevado);
             }else{
-                textViewEstado.setText("Risco Extremo");
+                textViewEstado.setText(R.string.extremo);
             }
         }
     }

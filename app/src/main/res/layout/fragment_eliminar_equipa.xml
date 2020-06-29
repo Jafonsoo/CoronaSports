@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="Nome da Equipa"
+        android:text="@string/nome_da_equipa"
         android:textColor="@color/darkblue"
         android:layout_marginStart="8dp" />
 
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="Modalidade"
+        android:text="@string/modalidade"
         android:textColor="@color/darkblue"
         android:layout_marginStart="8dp" />
 
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="Data de fundação"
+        android:text="@string/data_de_funda_o"
         android:textColor="@color/darkblue"
         android:layout_marginStart="8dp" />
 
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="Pais"
+        android:text="@string/pais"
         android:textColor="@color/darkblue"
         android:layout_marginStart="8dp" />
 
@@ -100,7 +100,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@android:color/holo_red_dark"
-        android:text="Eliminar"
+        android:text="@string/eliminar"
         android:textColor="@android:color/white" />
 
     <Button
@@ -111,7 +111,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Cancelar" />
+        android:text="@string/cancelar" />
 
 </LinearLayout>
 </ScrollView>

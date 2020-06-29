@@ -41,7 +41,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
-            android:text="Idade"
+            android:text="@string/idade"
              />
 
         <TextView
@@ -60,7 +60,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:text="Funçao" />
+                android:text="@string/fun_o_na_equipa" />
 
             <TextView
                 android:textColor="@color/darkblue"
@@ -78,7 +78,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:text="Data de contaminação" />
+                android:text="@string/data_de_confirma_o_do_virus" />
 
             <TextView
                 android:id="@+id/detalhes_data"
@@ -96,7 +96,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:text="Dados Clinicos" />
+                android:text="@string/dados_clinicos" />
 
             <TextView
                 android:id="@+id/detalhes_dados"
@@ -114,7 +114,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:text="Equipa" />
+                android:text="@string/equipa" />
 
             <TextView
                 android:id="@+id/detalhes_equipa"
@@ -132,7 +132,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:text="Pais" />
+                android:text="@string/pais" />
 
             <TextView
                 android:id="@+id/detalhes_pais"

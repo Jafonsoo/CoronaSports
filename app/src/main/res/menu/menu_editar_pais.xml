@@ -4,13 +4,13 @@
 
     <item
         android:id="@+id/action_guardar_pais"
-        android:title="@string/guardar"
+        android:title="@string/inserir_pa_s"
         android:icon="@drawable/ic_save_black_24dp"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/action_sair_pais"
-        android:title="@string/close"
+        android:title="@string/cancelar"
         android:icon="@drawable/ic_close_black_24dp"
         app:showAsAction="ifRoom"/>
 

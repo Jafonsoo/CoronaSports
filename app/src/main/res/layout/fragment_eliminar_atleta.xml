@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="Nome Completo"
+        android:text="@string/nome_completo"
         android:textColor="@color/darkblue"
         android:layout_marginStart="8dp" />
 
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="Idade"
+        android:text="@string/idade"
         android:textColor="@color/darkblue"
         android:layout_marginStart="8dp" />
 
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="Função"
+        android:text="@string/fun_o_na_equipa"
         android:textColor="@color/darkblue"
         android:layout_marginStart="8dp" />
 
@@ -96,7 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="Data de Confirmação"
+        android:text="@string/data_de_confirma_o_do_virus"
         android:textColor="@color/darkblue"
         android:layout_marginStart="8dp" />
 
@@ -116,7 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="Dados Clinicos"
+        android:text="@string/dados_clinicos"
         android:textColor="@color/darkblue"
         android:layout_marginStart="8dp" />
 
@@ -137,7 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="Equipa"
+        android:text="@string/equipa"
         android:textColor="@color/darkblue"
         android:layout_marginStart="8dp" />
 
@@ -157,7 +157,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="País"
+        android:text="@string/pais"
         android:textColor="@color/darkblue"
         android:layout_marginStart="8dp" />
 
@@ -180,7 +180,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@android:color/holo_red_dark"
-        android:text="Eliminar"
+        android:text="@string/eliminar"
         android:textColor="@android:color/white" />
 
     <Button
@@ -191,7 +191,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Cancelar" />
+        android:text="@string/cancelar" />
 
 </LinearLayout>
 </ScrollView>

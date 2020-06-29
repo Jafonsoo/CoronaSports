@@ -76,7 +76,7 @@ public class AdicionaPaisFragment extends Fragment {
         String nome = editTextNomePais.getText().toString();
 
         if(nome.trim().isEmpty()){
-            editTextNomePais.setError("O campo não pode estar vazio");
+            editTextNomePais.setError(getString(R.string.validaçao));
             return;
         }
 
@@ -85,14 +85,14 @@ public class AdicionaPaisFragment extends Fragment {
         String strSuspeitos = editTextSuspeitos.getText().toString();
 
         if (strSuspeitos.trim().isEmpty()){
-            editTextSuspeitos.setError("O campo não pode estar vazio");
+            editTextSuspeitos.setError(getString(R.string.validaçao));
             return;
         }
 
         try {
             suspeitos = Integer.parseInt(strSuspeitos);
         } catch (NumberFormatException e) {
-            editTextSuspeitos.setError("Suspeitos Inválidos");
+            editTextSuspeitos.setError(getString(R.string.invalido));
             return;
         }
 
@@ -101,14 +101,14 @@ public class AdicionaPaisFragment extends Fragment {
         String strInfetados = editTextInfetados.getText().toString();
 
         if (strInfetados.trim().isEmpty()){
-            editTextInfetados.setError("O campo não pode estar vazio");
+            editTextInfetados.setError(getString(R.string.validaçao));
             return;
         }
 
         try {
             infetados = Integer.parseInt(strInfetados);
         } catch (NumberFormatException e) {
-            editTextInfetados.setError("infetados Inválidos");
+            editTextInfetados.setError(getString(R.string.invalido));
             return;
         }
 
@@ -117,14 +117,14 @@ public class AdicionaPaisFragment extends Fragment {
         String strMortos = editTextObitos.getText().toString();
 
         if (strMortos.trim().isEmpty()){
-            editTextObitos.setError("O campo não pode estar vazio");
+            editTextObitos.setError(getString(R.string.validaçao));
             return;
         }
 
         try {
             mortos = Integer.parseInt(strMortos);
         } catch (NumberFormatException e) {
-            editTextObitos.setError("Obitos Inválidos");
+            editTextObitos.setError(getString(R.string.invalido));
             return;
         }
 
@@ -133,14 +133,14 @@ public class AdicionaPaisFragment extends Fragment {
         String strRecuperados = editTextRecuperados.getText().toString();
 
         if (strRecuperados.trim().isEmpty()){
-            editTextRecuperados.setError("O campo não pode estar vazio");
+            editTextRecuperados.setError(getString(R.string.validaçao));
             return;
         }
 
         try {
             recuperados = Integer.parseInt(strRecuperados);
         } catch (NumberFormatException e) {
-            editTextRecuperados.setError("Recuperados Inválidos");
+            editTextRecuperados.setError(getString(R.string.invalido));
             return;
         }
 
@@ -155,11 +155,11 @@ public class AdicionaPaisFragment extends Fragment {
         try {
             getActivity().getContentResolver().insert(ContentProviderCorona.ENDERECO_PAISES, pais.getContentValues());
 
-            Toast.makeText(getContext(), "Pais guardado com sucesso", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.guardarpais, Toast.LENGTH_SHORT).show();
             NavController navController = NavHostFragment.findNavController(AdicionaPaisFragment.this);
             navController.navigate(R.id.action_AdicionaPais_to_PaisFragment);
         } catch (Exception e) {
-            Snackbar.make(editTextNomePais,"Erro: Não foi possível criar o pais", Snackbar.LENGTH_LONG).show();
+            Snackbar.make(editTextNomePais, R.string.erroguardarpais, Snackbar.LENGTH_LONG).show();
 
             e.printStackTrace();
         }

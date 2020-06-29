@@ -64,8 +64,6 @@ public class AdaptadorEstatisticasEquipa extends RecyclerView.Adapter<AdaptadorE
                 dialog_fundacao.setText(String.valueOf(equipa.getData_fundacao()));
 
 
-
-                Toast.makeText(context,"Visualizar " + equipa.getNome_equipa(),Toast.LENGTH_SHORT).show();
                 buttonDetalhesPais.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

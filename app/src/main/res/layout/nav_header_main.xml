@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="casual"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="GESTÂO COVID-19"
+        android:text="@string/gest_o_covid_19"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
@@ -34,6 +34,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="ESCOLHA A TABELA" />
+        android:text="@string/escolha_a_tabela" />
 
 </LinearLayout>

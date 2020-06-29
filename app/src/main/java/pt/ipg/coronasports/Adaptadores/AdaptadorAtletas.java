@@ -102,13 +102,13 @@ public class AdaptadorAtletas extends RecyclerView.Adapter<AdaptadorAtletas.View
             textViewidade.setText(String.valueOf(atleta.getIdade_atleta()));
 
             if(atleta.getEstado_atleta()==0){
-                textViewestado.setText("Infetado");
+                textViewestado.setText(R.string.infetado);
                 textViewestado.setTextColor(Color.rgb(255,195,77));
             }else if (atleta.getEstado_atleta()==1){
-                textViewestado.setText("Recuperado");
+                textViewestado.setText(R.string.recuperado);
                 textViewestado.setTextColor(Color.rgb(0,128,0));
             }else {
-                textViewestado.setText("Falecido");
+                textViewestado.setText(R.string.falecido);
                 textViewestado.setTextColor(Color.rgb(178,0,32));
             }
 

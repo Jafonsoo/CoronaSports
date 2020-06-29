@@ -41,7 +41,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
-            android:text="Numero de Casos Suspeitos"
+            android:text="@string/casos_suspeitos"
              />
 
         <TextView
@@ -60,7 +60,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:text="Numero de Obitos" />
+                android:text="@string/numero_de_mortes" />
 
             <TextView
                 android:textColor="@color/darkblue"
@@ -78,7 +78,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:text="Numero de Recuperados" />
+                android:text="@string/numero_de_recuperados" />
 
             <TextView
                 android:id="@+id/detalhes_recuperados"
@@ -96,7 +96,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:text="Numero de infetados" />
+                android:text="@string/pessoas_infetadas" />
 
             <TextView
                 android:id="@+id/detalhes_infetados"

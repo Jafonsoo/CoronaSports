@@ -42,7 +42,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:text="Modalidade" />
+                android:text="@string/modalidade" />
 
             <TextView
                 android:textColor="@color/darkblue"
@@ -60,7 +60,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:text="Ano Fundação" />
+                android:text="@string/data_de_funda_o" />
 
             <TextView
                 android:id="@+id/detalhes_fundaçao"

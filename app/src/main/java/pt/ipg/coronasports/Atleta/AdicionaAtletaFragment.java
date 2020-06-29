@@ -54,7 +54,7 @@ public class AdicionaAtletaFragment extends Fragment implements LoaderManager.Lo
     private EditText editTextDados;
     private Button buttonAtleta;
 
-    private String[] stringEstado = new String[]{"Infetado", "Recuperado", "Falecido"};
+    private String[] stringEstado = new String[]{getString(R.string.infetado), getString(R.string.recuperado), getString(R.string.falecido)};
     private Spinner spinnerEstado;
     private Spinner spinnerPaises;
     private Spinner spinnerEquipas;
@@ -111,7 +111,7 @@ public class AdicionaAtletaFragment extends Fragment implements LoaderManager.Lo
         String nome = editTextNomeJogador.getText().toString();
 
         if (nome.trim().isEmpty()) {
-            editTextNomeJogador.setError("O campo não pode estar vazio");
+            editTextNomeJogador.setError(getString(R.string.validaçao));
             return;
         }
 
@@ -120,35 +120,35 @@ public class AdicionaAtletaFragment extends Fragment implements LoaderManager.Lo
         String strIdade = editTextIdade.getText().toString();
 
         if (strIdade.trim().length() > 2 ) {
-            editTextIdade.setError("Numero inválido");
+            editTextIdade.setError(getString(R.string.invalido));
             editTextIdade.requestFocus();
             return;
         }
         try {
             idade = Integer.parseInt(strIdade);
         } catch (NumberFormatException e) {
-            editTextIdade.setError("Este campo não pode estar vazio");
+            editTextIdade.setError(getString(R.string.validaçao));
             return;
         }
 
         String funcao = editTextFuncao.getText().toString();
 
         if (funcao.trim().isEmpty()) {
-            editTextFuncao.setError("Este campo não pode estar vazio");
+            editTextFuncao.setError(getString(R.string.validaçao));
             return;
         }
 
         String data = editTextDataJogador.getText().toString();
 
         if (data.trim().isEmpty()) {
-            editTextDataJogador.setError("Este campo não pode estar vazio");
+            editTextDataJogador.setError(getString(R.string.validaçao));
             return;
         }
 
         String dados = editTextDados.getText().toString();
 
         if (dados.trim().isEmpty()) {
-            editTextDados.setError("Este campo não pode estar vazio");
+            editTextDados.setError(getString(R.string.validaçao));
             return;
         }
 
@@ -175,13 +175,13 @@ public class AdicionaAtletaFragment extends Fragment implements LoaderManager.Lo
         try {
             getActivity().getContentResolver().insert(ContentProviderCorona.ENDERECO_ATLETAS, atleta.getContentValues());
 
-            Toast.makeText(getContext(), "Formulário guardado com sucesso", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.guradadosucesso, Toast.LENGTH_SHORT).show();
             NavController navController = NavHostFragment.findNavController(AdicionaAtletaFragment.this);
             navController.navigate(R.id.action_adicionaAtleta_to_AtletaFragment);
         } catch (Exception e) {
             Snackbar.make(
                     editTextNomeJogador,
-                    "Erro ao guardar Atleta",
+                    R.string.erroguardar,
                     Snackbar.LENGTH_LONG)
                     .show();
             e.printStackTrace();

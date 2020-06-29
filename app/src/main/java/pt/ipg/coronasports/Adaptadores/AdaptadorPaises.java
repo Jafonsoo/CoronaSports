@@ -99,17 +99,17 @@ public class AdaptadorPaises extends RecyclerView.Adapter<AdaptadorPaises.ViewHo
 
 
 
-            if(pais.getNum_infetados() >= 0 && pais.getNum_infetados() < 5000){
-                textViewEstado.setText("Risco Baixo");
+            if(pais.getNum_infetados() >= 0 && pais.getNum_infetados() < 20000){
+                textViewEstado.setText(R.string.baixo);
                 textViewEstado.setTextColor(Color.GREEN);
-            } else if(pais.getNum_infetados() >= 5000 && pais.getNum_infetados() < 10000){
-                textViewEstado.setText("Risco Moderado");
+            } else if(pais.getNum_infetados() >= 20000 && pais.getNum_infetados() < 100000){
+                textViewEstado.setText(R.string.moderado);
                 textViewEstado.setTextColor(Color.rgb(252,212,19));
-            }else if(pais.getNum_infetados()>=10000 && pais.getNum_infetados() < 30000){
-                textViewEstado.setText("Risco Elevado");
+            }else if(pais.getNum_infetados()>=100000 && pais.getNum_infetados() < 500000){
+                textViewEstado.setText(R.string.elevado);
                 textViewEstado.setTextColor(Color.rgb(255,171,36));
             }else{
-                textViewEstado.setText("Risco Extremo");
+                textViewEstado.setText(R.string.extremo);
                 textViewEstado.setTextColor(Color.rgb(178,0,32));
             }
 

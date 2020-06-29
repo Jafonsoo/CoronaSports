@@ -87,21 +87,21 @@ public class AdicionaEquipaFragment extends Fragment implements LoaderManager.Lo
         String nome = editTextNomeEquipa.getText().toString();
 
         if(nome.trim().isEmpty()){
-            editTextNomeEquipa.setError("O campo não pode estar vazio");
+            editTextNomeEquipa.setError(getString(R.string.validaçao));
             return;
         }
 
         String modalidades = editTextModalidades.getText().toString();
 
         if(modalidades.trim().isEmpty()){
-            editTextModalidades.setError("O campo não pode estar vazio");
+            editTextModalidades.setError(getString(R.string.validaçao));
             return;
         }
 
         String data = editTextDataFundacao.getText().toString();
 
         if(data.trim().length() != 4){
-            editTextDataFundacao.setError("Ano incorreto");
+            editTextDataFundacao.setError(getString(R.string.invalido));
             editTextDataFundacao.requestFocus();
             return;
         }
@@ -118,13 +118,13 @@ public class AdicionaEquipaFragment extends Fragment implements LoaderManager.Lo
         try {
             getActivity().getContentResolver().insert(ContentProviderCorona.ENDERECO_EQUIPAS, equipa.getContentValues());
 
-            Toast.makeText(getContext(), "Equipa guardada com sucesso", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.guardarequipa, Toast.LENGTH_SHORT).show();
             NavController navController = NavHostFragment.findNavController(AdicionaEquipaFragment.this);
             navController.navigate(R.id.action_adicionaEquipaFragment_to_EquipasFragment);
         } catch (Exception e) {
             Snackbar.make(
                     editTextNomeEquipa,
-                    "Erro ao guardar Equipa",
+                    R.string.erroguaradrequipa,
                     Snackbar.LENGTH_LONG)
                     .show();
             e.printStackTrace();

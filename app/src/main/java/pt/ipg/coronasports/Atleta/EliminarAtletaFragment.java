@@ -109,17 +109,17 @@ public class EliminarAtletaFragment extends Fragment {
     public void eliminar() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
-        builder.setTitle("Eliminar Atleta");
-        builder.setMessage("Tem a certeza que pretende eliminar o atleta '" + atleta.getNome_atleta() + "'");
+        builder.setTitle(getString(R.string.eliminar) + atleta.getFuncao());
+        builder.setMessage(getString(R.string.eliatleta) + atleta.getNome_atleta() + "'");
         builder.setIcon(R.drawable.ic_baseline_delete_24);
-        builder.setPositiveButton("Sim, eliminar", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.simeliminar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 confirmaEliminar();
             }
         });
 
-        builder.setNegativeButton("Não, cancelar", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.naocancelar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // cancelar
@@ -141,7 +141,7 @@ public class EliminarAtletaFragment extends Fragment {
             int apagados = getActivity().getContentResolver().delete(enderecoAtleta, null, null);
 
             if (apagados == 1) {
-                Toast.makeText(getContext(), "Atleta eliminada com sucesso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.sucessatletea, Toast.LENGTH_SHORT).show();
                 NavController navController = NavHostFragment.findNavController(EliminarAtletaFragment.this);
                 navController.navigate(R.id.action_eliminarAtletaFragment_to_AtletaFragment);
                 return;
@@ -150,6 +150,6 @@ public class EliminarAtletaFragment extends Fragment {
 
         }
 
-        Snackbar.make(textViewNome, "Erro: Não foi possível eliminar o atleta", Snackbar.LENGTH_INDEFINITE).show();
+        Snackbar.make(textViewNome, R.string.impeliminaratl, Snackbar.LENGTH_INDEFINITE).show();
     }
 }

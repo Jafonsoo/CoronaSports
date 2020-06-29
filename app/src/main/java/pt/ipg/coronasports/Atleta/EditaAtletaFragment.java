@@ -123,7 +123,7 @@ public class EditaAtletaFragment extends Fragment implements LoaderManager.Loade
         String nome = editTextNomeJogador.getText().toString();
 
         if (nome.trim().isEmpty()) {
-            editTextNomeJogador.setError("O campo não pode estar vazio");
+            editTextNomeJogador.setError(getString(R.string.validaçao));
             return;
         }
 
@@ -132,28 +132,28 @@ public class EditaAtletaFragment extends Fragment implements LoaderManager.Loade
         String strIdade = editTextIdade.getText().toString();
 
         if (strIdade.trim().length() < 2 ) {
-            editTextIdade.setError("O campo não pode estar vazio!");
+            editTextIdade.setError(getString(R.string.validaçao));
             editTextIdade.requestFocus();
             return;
         }
         try {
             idade = Integer.parseInt(strIdade);
         } catch (NumberFormatException e) {
-            editTextIdade.setError("Campo Inválido");
+            editTextIdade.setError(getString(R.string.invalido));
             return;
         }
 
         String funcao = editTextFuncao.getText().toString();
 
         if (funcao.trim().isEmpty()) {
-            editTextFuncao.setError("O campo não pode estar vazio");
+            editTextFuncao.setError(getString(R.string.validaçao));
             return;
         }
 
         String data = editTextDataJogador.getText().toString();
 
         if (data.trim().isEmpty()) {
-            editTextDataJogador.setError("O campo não pode estar vazio");
+            editTextDataJogador.setError(getString(R.string.validaçao));
             return;
         }
 
@@ -161,7 +161,7 @@ public class EditaAtletaFragment extends Fragment implements LoaderManager.Loade
         String dados = editTextDados.getText().toString();
 
         if (dados.trim().isEmpty()) {
-            editTextDados.setError("O campo não pode estar vazio");
+            editTextDados.setError(getString(R.string.validaçao));
             return;
         }
 
@@ -187,13 +187,13 @@ public class EditaAtletaFragment extends Fragment implements LoaderManager.Loade
 
             getActivity().getContentResolver().update(enderecoEquipaEditar, atleta.getContentValues(),null,null);
 
-            Toast.makeText(getContext(), "Atleta guardado com sucesso", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.guradadosucesso, Toast.LENGTH_SHORT).show();
             NavController navController = NavHostFragment.findNavController(EditaAtletaFragment.this);
             navController.navigate(R.id.action_editaAtletaFragment_to_AtletaFragment);
         } catch (Exception e) {
             Snackbar.make(
                     editTextNomeJogador,
-                    "Erro ao guardar Atleta",
+                    R.string.erroguardar,
                     Snackbar.LENGTH_LONG)
                     .show();
             e.printStackTrace();
